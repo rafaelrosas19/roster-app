@@ -1,16 +1,24 @@
 function Player(props) {
   console.log("player props", props);
 
-  const allHobbies = props.hobbies.map((hobby) => {
-    return <li>{hobby}</li>;
-  });
+  const playerHobbies = props.hobbies.length ? (
+    props.hobbies.map((hobby) => {
+      return <li key={props.id}>{hobby}</li>;
+    })
+  ) : (
+    <p>None listed</p>
+  );
+
+  // const allHobbies = props.hobbies.map((hobby) => {
+  //   return <li>{hobby}</li>;
+  // });
 
   return (
     <div>
       <h3>
         {props.firstName} his jersey number is {props.jerseyNumber}
       </h3>
-      <ul>{allHobbies}</ul>
+      <ul>{playerHobbies}</ul>
     </div>
   );
 }
